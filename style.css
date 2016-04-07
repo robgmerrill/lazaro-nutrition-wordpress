@@ -758,6 +758,7 @@ section.main-content {
 }
 
 #instructor {
+	padding-top: 2px;
   background: white url('/wp-content/themes/lazaronutrition/assets/img/matt-stacia.png') 90% -10px no-repeat;
 }
 

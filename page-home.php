@@ -18,6 +18,18 @@
   $reason_2_title  = get_field('reason_2_title');
   $reason_2_description  = get_field('reason_2_description');
 
+  $instructor_section_title = get_field('instructor_section_title');
+  $instructor_section_name = get_field('instructor_section_name');
+  $bio_excerpt = get_field('bio_excerpt');
+  $full_bio = get_field('full_bio');
+  $twitter_username = get_field('twitter_username');
+  $facebook_username = get_field('facebook_username');
+  $snapchat_username = get_field('snapchat_username');
+  $big_circle_stat_1 = get_field('big_circle_stat_1');
+  $big_circle_stat_2 = get_field('big_circle_stat_2');
+  $big_circle_stat_3 = get_field('big_circle_stat_3');
+
+
 get_header(); ?>
 
 
@@ -133,26 +145,32 @@ get_header(); ?>
   
   <!-- INSTRUCTOR
   ================================================== -->
+
+
   <section id="instructor">
     <div class="container">
       <div class="row">
         <div class="col-sm-8 col-md-6">
           <div class="row">
             <div class="col-lg-8">
-              <h2>Your Team <small>Matt and Stacia</small></h2>
+              <h2><?php echo $instructor_section_title; ?><small><?php echo $instructor_section_name; ?></small></h2>
             </div><!-- end col -->
+            
             <div class="col-lg-4">
-              <a href="https://twitter.com/bradhussey" class="badge social twitter" target="_blank"><i class="fa fa-twitter"></i></a>
-              <a href="https://facebook.com/bradhussey" class="badge social facebook" target="_blank"><i class="fa fa-facebook"></i></a>
-              <a href="https://plus.google.com/+BradHussey" class="badge social gplus" target="_blank"><i class="fa fa-google-plus"></i></a>
+              <?php if( !empty($facebook_username) ):  ?>
+              <a href="https://facebook.com/<?php echo $facebook_username; ?>" class="badge social facebook" target="_blank"><i class="fa fa-facebook"></i></a>
+            <?php endif; ?>
+
+              <?php if( !empty($instagram_username) ):  ?>
+              <a href="https://instagram.com/<?php echo $instagram_username; ?>" class="badge social instagram" target="_blank"><i class="fa fa-instagram"></i></a>
+            <?php endif; ?>
             </div><!-- end col -->
           
           </div><!-- row -->
           
-          <p class="lead">Log bilge shrouds lugsail piracy pressgang black spot Plate Fleet galleon spike.<p>
+          <p class="lead"><?php echo $bio_excerpt; ?><p>
           
-          <p>Square-rigged scallywag ye spanker matey killick boom Admiral of the Black hogshead black jack. Jack Ketch tack cog no prey, no pay quarter landlubber or just lubber grog blossom hogshead Arr Davy Jones' Locker.</p>
-          
+          <?php echo $full_bio; ?>
           
           <hr>
           
@@ -161,7 +179,7 @@ get_header(); ?>
             <div class="col-xs-4">
               <div class="num">
                 <div class="num-content">
-                  10 Years <span>industry experience</span>
+                  <?php echo $big_circle_stat_1; ?> <span>industry experience</span>
                 </div><!-- num-content -->
               </div><!-- num -->
             </div><!-- end col -->
@@ -169,7 +187,7 @@ get_header(); ?>
             <div class="col-xs-4">
               <div class="num">
                 <div class="num-content">
-                  Stat <span>summary</span>
+                  <?php echo $big_circle_stat_2; ?> <span>summary</span>
                 </div><!-- num-content -->
               </div><!-- num -->
             </div><!-- end col -->
@@ -177,7 +195,7 @@ get_header(); ?>
             <div class="col-xs-4">
               <div class="num">
                 <div class="num-content">
-                  Stat <span>summary</span>
+                  <?php echo $big_circle_stat_3; ?> <span>summary</span>
                 </div><!-- num-content -->
               </div><!-- num -->
             </div><!-- end col -->
