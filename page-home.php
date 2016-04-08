@@ -216,46 +216,34 @@ get_header(); ?>
         <div class="col-sm-8 col-sm-offset-2">
           <h2>What People Are Saying About Lazaro Nutrition</h2>
           
-          <!-- TESTIMONIAL -->
-          <div class="row testimonial">
-            <div class="col-sm-4">
-              <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/img/brennan.jpg" alt="Brennan">
-            </div><!-- end col -->
-            <div class="col-sm-8">
-              <blockquote>
-                Pork belly direct trade stumptown, portland kickstarter man bun 90's cold-pressed chartreuse. Craft beer quinoa blue bottle chartreuse, yr messenger bag organic four dollar toast slow-carb blog vice. Venmo church-key shabby chic, lomo humblebrag slow-carb schlitz salvia flannel raw denim plaid green juice dreamcatcher affogato VHS. 
-              </blockquote>
-            </div><!-- end col -->
-          </div><!-- row -->
+          <?php $loop = new WP_Query( array( 'post_type' => 'testimonial', 'orderby' => 'post_id', 'order' => 'ASC' ) ); ?>
           
-          <!-- TESTIMONIAL -->
-          <div class="row testimonial">
-            <div class="col-sm-4">
-              <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/img/aj.png" alt="Illustration of a man with a beard">
-            </div><!-- end col -->
-            <div class="col-sm-8">
-              <blockquote>
-                Williamsburg narwhal tattooed, pickled viral bicycle rights franzen slow-carb semiotics everyday carry blue bottle selfies vinyl pork belly. Scenester tousled affogato humblebrag lumbersexual chartreuse. Hella semiotics waistcoat, heirloom venmo etsy bitters ethical gochujang yuccie you probably haven't heard of them tousled. 
-              </blockquote>
-            </div><!-- end col -->
-          </div><!-- row -->
-  
-          <!-- TESTIMONIAL -->
-          <div class="row testimonial">
-            <div class="col-sm-4">
-              <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/img/ernest.png" alt="Illustration of a man with a goatee">
-            </div><!-- end col -->
-            <div class="col-sm-8">
-              <blockquote>
-                Semiotics cardigan etsy plaid slow-carb umami wolf. Shoreditch readymade salvia, mumblecore yr pork belly cardigan semiotics occupy leggings deep v single-origin coffee photo booth echo park. Squid kogi scenester cardigan, next level YOLO artisan hashtag. Gentrify blog messenger bag, trust fund neutra poutine street art jean shorts. 
-              </blockquote>
-            </div><!-- end col -->
-          </div><!-- row -->
+          <?php while( $loop->have_posts() ) : $loop->the_post(); ?>
           
-        </div><!-- end col -->
-        
-      </div><!-- row -->
-    </div><!-- container -->
+            <!-- TESTIMONIAL -->
+          <div class="row testimonial">
+            <div class="col-sm-4">
+              
+              <?php 
+                if ( has_post_thumbnail() ){
+                  the_post_thumbnail( array(200, 200));
+                }
+
+                  ?>
+
+            </div><!-- end col -->
+            <div class="col-sm-8">
+              <blockquote>
+               <?php the_content(); ?>
+                <cite>&mdash; <?php the_title(); ?></cite>
+              </blockquote>
+            </div><!-- end col -->
+          </div><!-- row -->
+
+
+        <?php endwhile; ?>
+
+          
   </section><!-- kudos -->
   
 
