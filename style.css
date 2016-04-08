@@ -809,6 +809,9 @@ section.main-content {
 #signup {
   text-align: center;
   background: url('/wp-content/themes/lazaronutrition/assets/img/workout-stuff.jpg') center fixed;
+   -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
   color: white;
   padding: 140px 0;
